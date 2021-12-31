@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BOE智能大屏看板</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/prefixfree.min.js"></script>
+
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/contain.css" rel="stylesheet" />
+    <link href="css/common.css" rel="stylesheet" />
+    <script src="js/status.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/contain.js"></script>
+    <script src="js/echarts/echarts.js"></script>
+    <script src="js/echarts/echarts-liquidfill.js"></script>
+</head>
+<body>
+    <div class="stars"></div>
+    <header class="cd-main-header">
+        <a class="cd-logo" href="#0">
+            <img src="images/nav/boe.png" alt="Logo" height="50">
+        </a>
+        <ul class="cd-header-buttons">
+            <li><a class="cd-nav-trigger" href="#cd-primary-nav">Menu<span></span></a></li>
+        </ul>
+        <!-- cd-header-buttons -->
+    </header>
+
+    <!--背景覆盖-->
+    <!--<main class="cd-main-content">-->
+    <!-- your content here -->
+    <!--<div class="cd-overlay"></div>
+    </main>-->
+    <!--菜单标题-->
+    <nav class="cd-nav">
+        <ul id="cd-primary-nav" class="cd-primary-nav is-fixed">
+
+            <!--层叠标题-->
+            <li class="has-children">
+                <a href="#">预留信息栏</a>
+                <ul class="cd-nav-gallery is-hidden">
+                    <li class="go-back"><a href="#0">Menu</a></li>
+                    <!--<li>
+                        <a class="cd-nav-item" href="TemperatureAndHumidity.html" target="_blank">
+                            <h3>温湿度</h3>
+                        </a>
+                    </li>-->
+                </ul>
+            </li>
+            <!--<li>
+                <a class="cd-nav-item" href="TemperatureAndHumidity.html" target="_blank">
+                    <h3>温湿度</h3>
+                </a>
+            </li>-->
+
+        </ul>
+        <!-- primary-nav -->
+    </nav>
+
+    <!--温湿度-->
+    <div class="cont_h350 margin_top_22 cont_row">
+        <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+        <span style=" display: flex; flex-direction: row; height: 250px; border: 1px solid #666666;">
+            <!--<span>区域一</span>-->
+            <span id="char1" style="width: 300px; height: 250px; "></span>
+            <span style=" color: yellow; font-weight: bold; vertical-align: middle; margin-top: 3%;"> 
+                <a class="cd-nav-item" href="TemperatureAndHumidity.html" target="_blank" style=" color: yellow;">
+                    区域一
+                </a>
+            </span>
+            <span id="char2" style="width: 300px; height: 250px;  margin-left: -10px; "></span>
+        </span>
+    </div>
+
+    <sdcript src="js/jquery-3.2.1.min.js"></sdcript>
+    <script src="js/main.js"></script>
+    <script src="js/stopExecutionOnTimeout.js"></script>
+    <!-- Resource jQuery -->
+    <!--echarts-->
+    <!--<script src="js/echarts/time.js"></script>-->
+    <script src="js/echarts/echarts.js"></script>
+    <script src="js/echarts/echarts-liquidfill.js"></script>
+    <script type="text/javascript" src="js/echarts/gauge.js"></script>
+    <script src="js/echarts/workorderinfocharts.js"></script>
+    <script src="js/progress.js"></script>
+
+    <script type="text/javascript">
+
+        if (!window.require) {
+            require = function (a, b) {
+                b(echarts);
+            };
+            require.config = function () { };
+        }
+
+        require.config({
+            paths: {
+                echarts: 'js/echarts'
+            }
+        });
+        require(
+            [
+                'echarts',
+                'echarts/chart/line', // 按需加载所需图表，如需动态类型切换功能，别忘了同时加载相应图表
+                'echarts/chart/bar'
+            ],
+            function (ec) {
+                var echar1 = echarts.init(document.getElementById('char1'));
+                var option1 = char08(parseFloat("0"));
+                echar1.setOption(option1);
+
+                var echar2 = echarts.init(document.getElementById('char2'));
+                var option2 = char07(parseFloat("0"));
+                echar2.setOption(option2);
+
+                var gdata = gData();
+                clearInterval(timeTicket);
+                var timeTicket = setInterval(gData, 5000);
+                function gData() {
+                    $.ajax({
+                        type: "post",    //请求方式
+                        /* async: false,*/     //是否异步
+                        url: "http://10.22.21.216:5702/api/WorkshopInfo/GetCurrent",
+                        dataType: "json",    //跨域json请求一定是jsonp
+                        success: function (data) {
+
+                            //console.log('api:GetTestData:' + data+"");
+                            var part1 = data.part1;
+                            var part2 = data.part2;
+
+                            //温度
+                            var t_value = part1[0].RealValue;;
+                            option1 = char08(parseFloat(t_value));
+                            echar1.setOption(option1);
+
+                            //湿度
+                            var h_value = part2[0].RealValue;
+                            option2 = char07(parseFloat(h_value));
+                            //console.log(parseFloat(h_value));
+                            echar2.setOption(option2);
+
+                        },
+                        error: function (msg) {
+                            console.log('api:GetTestData,error:' + msg.responseText);
+                        }
+                    });
+
+                }
+            }
+        );
+    </script>
+</body>
+</html>

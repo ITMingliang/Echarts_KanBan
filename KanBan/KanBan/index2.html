@@ -1,0 +1,211 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BOE智能大屏看板</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/prefixfree.min.js"></script>
+
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/contain.css" rel="stylesheet" />
+    <link href="css/common.css" rel="stylesheet" />
+    <script src="js/status.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/contain.js"></script>
+</head>
+<body>
+    <div class="stars"></div>
+    <header class="cd-main-header">
+        <a class="cd-logo" href="#0">
+            <img src="images/nav/boe.png" alt="Logo" height="50">
+        </a>
+        <ul class="cd-header-buttons">
+            <li><a class="cd-nav-trigger" href="#cd-primary-nav">Menu<span></span></a></li>
+        </ul>
+        <!-- cd-header-buttons -->
+    </header>
+
+    <!--背景覆盖-->
+    <!--<main class="cd-main-content">-->
+    <!-- your content here -->
+    <!--<div class="cd-overlay"></div>
+    </main>-->
+    <!--菜单标题-->
+    <nav class="cd-nav">
+        <ul id="cd-primary-nav" class="cd-primary-nav is-fixed">
+
+            <!--层叠标题-->
+            <!--<li class="has-children">
+                <a href="#">车间信息</a>
+                <ul class="cd-nav-gallery is-hidden">
+                    <li class="go-back"><a href="#0">Menu</a></li>
+                    <li>
+                        <a class="cd-nav-item" href="TemperatureAndHumidity.html" target="_blank">
+                            <h3>温湿度</h3>
+                        </a>
+                    </li>
+                </ul>
+            </li>-->
+            <li>
+                <a class="cd-nav-item" href="TemperatureAndHumidity.html" target="_blank">
+                    <h3>温湿度</h3>
+                </a>
+            </li>
+
+        </ul>
+        <!-- primary-nav -->
+    </nav>
+
+    <!--仪表显示-->
+    <div class="cont_h350 margin_top_22 cont_row">
+        <div class="cont_vw489">
+            <div class="rmcont_cont_box">
+                <div class="rmcont_cbox">
+                    <div class="cleaning_box_2 boxbg">
+                        <div class="cont_vw489">
+                            <div id="char1" style="width:50vw;height:50vh;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cont_vw489">
+            <div class="rmcont_cont_box">
+                <div class="rmcont_cbox">
+                    <div class="cleaning_box_2 boxbg">
+                        <div class="cont_vw489">
+                            <div id="char2" style="width:50vw;height:50vh;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/stopExecutionOnTimeout.js"></script>
+    <!-- Resource jQuery -->
+    <!--echarts-->
+    <!--<script src="js/echarts/time.js"></script>-->
+    <script src="js/echarts/echarts.js"></script>
+    <script type="text/javascript" src="js/echarts/gauge.js"></script>
+    <script src="js/echarts/workorderinfocharts.js"></script>
+    <script src="js/progress.js"></script>
+
+    <script type="text/javascript">
+
+        if (!window.require) {
+            require = function (a, b) {
+                b(echarts);
+            };
+            require.config = function () { };
+        }
+
+        require.config({
+            paths: {
+                echarts: 'js/echarts'
+            }
+        });
+        require(
+            [
+                'echarts',
+                'echarts/chart/line', // 按需加载所需图表，如需动态类型切换功能，别忘了同时加载相应图表
+                'echarts/chart/bar'
+            ],
+            function (ec) {
+                var echar1 = echarts.init(document.getElementById('char1'));
+                var option1 = char03();
+                //option1.title.text = "温度";
+                //option1.xAxis[0].data = [];
+                //option1.series[0].data = [];
+                echar1.setOption(option1);
+
+                //var echar2 = echarts.init(document.getElementById('char2'));
+                //var option2 = char04();
+                //option2.title.text = "湿度";
+                //option2.xAxis[0].data = [];
+                //option2.series[0].data = [];
+                //echar2.setOption(option2);
+
+              // var gdata = gData();
+                clearInterval(timeTicket);
+                var timeTicket = setInterval(gData, 20000);
+                function gData() {
+                    $.ajax({
+                        type: "post",    //请求方式
+                        /* async: false,*/     //是否异步
+                        url: "http://10.22.21.216:5702/api/WorkshopInfo/GetStationTH",
+                        dataType: "json",    //跨域json请求一定是jsonp
+                        success: function (data) {
+
+                            //console.log('api:GetTestData:' + data+"");
+                            var part1 = data.part1;
+                            var part2 = data.part2;
+
+
+                            $("#LowerLimit_T").html(part1[0].LowerLimit + part1[0].Unit);
+                            $("#UpLimit_T").html(part1[0].UpLimit + part1[0].Unit);
+                            $("#LowerLimit_H").html(part2[0].LowerLimit + part2[0].Unit);
+                            $("#UpLimit_H").html(part2[0].UpLimit + part2[0].Unit);
+
+                            console.log('api:GetTestData:' + part1[0].LowerLimit + "");
+
+                            var pro = new progress({
+                                width: 200,//进度条宽度
+                                height: 20,//进度条高度
+                                bgColor: "#3E4E5E",//背景颜色
+                                proColor: "#25f3e6",//前景颜色
+                                fontColor: "#FFFFFF",//显示字体颜色
+                                val: part1.CompleteRate,//默认值
+                                //text: "#*val*#%",//显示文字信息
+                                showPresent: true,
+
+                            });
+                            $('#progress').empty();
+                            $('#progress').append(pro.getBody());
+
+                            var datax1 = [];
+                            var data1 = [];
+                            var datax2 = [];
+                            var data2 = [];
+
+                            //for (var i = 0; i < part1.length; i++) {
+                            //    datax1.push(part1[i].AddDate);
+                            //    data1.push(part1[i].RealValue);
+                            //}
+
+                            for (var i = part1.length - 1; i > 0; i--) {
+                                datax1.push(part1[i].AddDate);
+                                data1.push(part1[i].RealValue);
+                            }
+
+                            for (var i = part2.length - 1; i > 0; i--) {
+                                datax2.push(part2[i].AddDate);
+                                data2.push(part2[i].RealValue);
+                            }
+
+                            option1.xAxis[0].data = datax1;
+                            option1.series[0].data = data1;
+                            echar1.setOption(option1);
+
+                            option2.xAxis[0].data = datax2;
+                            option2.series[0].data = data2;
+                            echar2.setOption(option2);
+
+                        },
+                        error: function (msg) {
+                            console.log('api:GetTestData,error:' + msg.responseText);
+                        }
+                    });
+
+                }
+            }
+        );
+
+    </script>
+</body>
+</html>
