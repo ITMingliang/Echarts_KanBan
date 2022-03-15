@@ -1,0 +1,7 @@
+G:\MES_Src\KANBAN\Echarts_KanBan\KanBan\KanBan\bin\KanBan.dll.config
+G:\MES_Src\KANBAN\Echarts_KanBan\KanBan\KanBan\bin\KanBan.dll
+G:\MES_Src\KANBAN\Echarts_KanBan\KanBan\KanBan\bin\KanBan.pdb
+G:\MES_Src\KANBAN\Echarts_KanBan\KanBan\KanBan\obj\Debug\KanBan.csproj.AssemblyReference.cache
+G:\MES_Src\KANBAN\Echarts_KanBan\KanBan\KanBan\obj\Debug\KanBan.csproj.CoreCompileInputs.cache
+G:\MES_Src\KANBAN\Echarts_KanBan\KanBan\KanBan\obj\Debug\KanBan.dll
+G:\MES_Src\KANBAN\Echarts_KanBan\KanBan\KanBan\obj\Debug\KanBan.pdb

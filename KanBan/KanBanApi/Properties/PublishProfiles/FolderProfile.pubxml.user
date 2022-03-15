@@ -5,62 +5,62 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>G:\Publish\TH</_PublishTargetUrl>
-    <History>True|2021-12-28T08:43:34.9896360Z;True|2021-12-28T16:29:20.3677792+08:00;True|2021-12-28T14:52:59.5962816+08:00;</History>
+    <History>True|2022-03-11T07:23:44.3623649Z;True|2022-03-11T15:20:04.1374012+08:00;True|2021-12-28T16:43:34.9896360+08:00;True|2021-12-28T16:29:20.3677792+08:00;True|2021-12-28T14:52:59.5962816+08:00;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="Areas/HelpPage/HelpPage.css">
       <publishTime>12/11/2019 15:04:01</publishTime>
     </File>
     <File Include="Areas/HelpPage/Views/Help/Api.cshtml">
-      <publishTime>12/11/2019 15:04:01</publishTime>
+      <publishTime>03/12/2022 10:03:01</publishTime>
     </File>
     <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/ApiGroup.cshtml">
-      <publishTime>12/11/2019 15:04:01</publishTime>
+      <publishTime>03/12/2022 10:03:01</publishTime>
     </File>
     <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/CollectionModelDescription.cshtml">
-      <publishTime>12/11/2019 15:04:01</publishTime>
+      <publishTime>03/12/2022 10:03:01</publishTime>
     </File>
     <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/ComplexTypeModelDescription.cshtml">
-      <publishTime>12/11/2019 15:04:01</publishTime>
+      <publishTime>03/12/2022 10:03:01</publishTime>
     </File>
     <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/DictionaryModelDescription.cshtml">
-      <publishTime>12/11/2019 15:04:01</publishTime>
+      <publishTime>03/12/2022 10:03:01</publishTime>
     </File>
     <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/EnumTypeModelDescription.cshtml">
-      <publishTime>12/11/2019 15:04:01</publishTime>
+      <publishTime>03/12/2022 10:03:00</publishTime>
     </File>
     <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/HelpPageApiModel.cshtml">
-      <publishTime>12/11/2019 15:04:01</publishTime>
+      <publishTime>03/12/2022 10:03:00</publishTime>
     </File>
     <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/ImageSample.cshtml">
-      <publishTime>12/11/2019 15:04:01</publishTime>
+      <publishTime>03/12/2022 10:03:00</publishTime>
     </File>
     <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/InvalidSample.cshtml">
-      <publishTime>12/11/2019 15:04:01</publishTime>
+      <publishTime>03/12/2022 10:03:00</publishTime>
     </File>
     <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/KeyValuePairModelDescription.cshtml">
-      <publishTime>12/11/2019 15:04:01</publishTime>
+      <publishTime>03/12/2022 10:03:00</publishTime>
     </File>
     <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/ModelDescriptionLink.cshtml">
-      <publishTime>12/11/2019 15:04:01</publishTime>
+      <publishTime>03/12/2022 10:03:00</publishTime>
     </File>
     <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/Parameters.cshtml">
-      <publishTime>12/11/2019 15:04:01</publishTime>
+      <publishTime>03/12/2022 10:03:00</publishTime>
     </File>
     <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/Samples.cshtml">
       <publishTime>12/11/2019 15:04:01</publishTime>
     </File>
     <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/SimpleTypeModelDescription.cshtml">
-      <publishTime>12/11/2019 15:04:01</publishTime>
+      <publishTime>03/12/2022 10:03:00</publishTime>
     </File>
     <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/TextSample.cshtml">
-      <publishTime>12/11/2019 15:04:01</publishTime>
+      <publishTime>03/12/2022 10:03:00</publishTime>
     </File>
     <File Include="Areas/HelpPage/Views/Help/Index.cshtml">
-      <publishTime>12/11/2019 15:04:01</publishTime>
+      <publishTime>03/12/2022 10:03:00</publishTime>
     </File>
     <File Include="Areas/HelpPage/Views/Help/ResourceModel.cshtml">
-      <publishTime>12/11/2019 15:04:01</publishTime>
+      <publishTime>03/12/2022 10:03:00</publishTime>
     </File>
     <File Include="Areas/HelpPage/Views/Shared/_Layout.cshtml">
       <publishTime>12/11/2019 15:04:01</publishTime>
@@ -84,13 +84,19 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/11/2019 15:04:02</publishTime>
     </File>
     <File Include="bin/Juqent.CPS.MvcWebApi.dll">
-      <publishTime>12/28/2021 16:43:34</publishTime>
+      <publishTime>03/12/2022 10:14:00</publishTime>
     </File>
     <File Include="bin/Juqent.CPS.MvcWebApi.pdb">
-      <publishTime>12/28/2021 16:43:34</publishTime>
+      <publishTime>03/12/2022 10:14:00</publishTime>
     </File>
     <File Include="bin/JuQent.Service.DataUtility.dll">
       <publishTime>12/11/2019 15:04:02</publishTime>
+    </File>
+    <File Include="bin/KanBanApi.dll">
+      <publishTime>03/12/2022 10:05:06</publishTime>
+    </File>
+    <File Include="bin/KanBanApi.pdb">
+      <publishTime>03/12/2022 10:05:06</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>05/24/2018 21:38:22</publishTime>
@@ -357,7 +363,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/11/2019 15:04:02</publishTime>
     </File>
     <File Include="Global.asax">
-      <publishTime>12/11/2019 15:04:01</publishTime>
+      <publishTime>03/12/2022 10:03:00</publishTime>
     </File>
     <File Include="Scripts/bootstrap.js">
       <publishTime>12/11/2019 15:04:02</publishTime>
@@ -396,13 +402,13 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>12/11/2019 15:04:01</publishTime>
     </File>
     <File Include="Views/Web.config">
-      <publishTime>12/11/2019 15:04:01</publishTime>
+      <publishTime>03/12/2022 10:03:00</publishTime>
     </File>
     <File Include="Views/_ViewStart.cshtml">
       <publishTime>12/11/2019 15:04:01</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/28/2021 14:52:59</publishTime>
+      <publishTime>03/12/2022 09:49:24</publishTime>
     </File>
   </ItemGroup>
 </Project>

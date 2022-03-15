@@ -1,0 +1,503 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>仓库温湿度看板</title>
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/contain.css" rel="stylesheet" />
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/common.css" rel="stylesheet" />
+    <script src="js/status.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/contain.js"></script>
+
+</head>
+<body>
+
+    <div id="particles-js"></div>
+    <a href="index.html" target="_blank" style=" color:lemonchiffon;font-weight:bold">
+        主页
+    </a>
+    <div class="body_warp">
+        <!--顶部标题-->
+        <div class="cheader">
+            <div class="ctitle">
+                <strong>仓库区域</strong>
+                <div class="ctitlebg"></div>
+            </div>
+            <div class="rmdatetime">
+                <span id='Timers'>&nbsp;</span>
+            </div>
+        </div>
+
+        <div class="rmcont_column">
+            <div class="cont_h148 margin_top_22 cont_row">
+                <div class="cont_w370">
+                    <div class="rmcont_cont_box">
+                        <div class="rmcont_cbox boxall">
+                            <div class="con_div_text02">
+                                <div class="text03_div">
+                                    <p>
+                                        <font size="6">温度下限</font>
+                                    </p>
+                                    <p id="LowerLimit_T" class="sky">20.0℃</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont_w370">
+                    <div class="rmcont_cont_box">
+                        <div class="rmcont_cbox boxall">
+                            <div class="con_div_text02">
+                                <div class="text03_div">
+                                    <p>
+                                        <font size="6">温度上限</font>
+                                    </p>
+                                    <p id="UpLimit_T" class="sky">28.0℃</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont_w390">
+                    <div class="rmcont_cont_box">
+                        <div class="rmcont_cbox boxall">
+                            <div class="con_div_text02">
+                                <div class="text03_div">
+                                    <p>产品名称</p>
+                                    <p>
+                                        <font size="6" id="ProductName" color="yellow">温湿度智能监控</font>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont_w370">
+                    <div class="rmcont_cont_box">
+                        <div class="rmcont_cbox boxall">
+                            <div class="con_div_text02">
+                                <div class="text03_div">
+                                    <p>
+                                        <font size="6">湿度下限</font>
+                                    </p>
+                                    <p id="LowerLimit_H" class="sky">45.0%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cont_w370">
+                    <div class="rmcont_cont_box">
+                        <div class="rmcont_cbox boxall">
+                            <div class="con_div_text02">
+                                <div class="text03_div">
+                                    <p>
+                                        <font size="6">湿度上限</font>
+                                    </p>
+                                    <p id="UpLimit_H" class="sky">75.0%</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--分行-->
+            <div class="cont_h350 margin_top_2 cont_row" style="margin-left:0%;">
+                <!--温度-->
+                <div class="cont_vw489">
+                    <div class="rmcont_cont_box">
+                        <div class="rmcont_cbox">
+                            <div class="cleaning_box_2 boxbg" style="width: 170%; margin-left: 25%;">
+                                <div class="cont_vw489">
+                                    <div id="char1" style="width:160%;height:32vh;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cont_h350 margin_top_22 cont_row" style="margin-left:0%;">
+                <!--湿度-->
+                <div class="cont_vw489">
+                    <div class="rmcont_cont_box">
+                        <div class="rmcont_cbox">
+                            <div class="cleaning_box_2 boxbg" style="width: 170%; margin-left: 25%;">
+                                <div class="cont_vw489">
+                                    <div id="char2" style="width:160%;height:32vh;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!--弹窗测试-->
+        <!--  <button onclick="showModal()">点击弹框</button>-->
+        <!--温度-->
+        <div class='modal my-modal-alert' id='my-modal-alert-t' style="margin-left: 17%; margin-top: 11%; overflow-y: hidden">
+            <div class='modal-dialog boxBodySmall'>
+
+                <img src="images/Warning.png" style="width:20%;height:20%;" onclick="custom_close_t()" />
+            </div>
+        </div>
+
+        <!--湿度-->
+        <div class='modal my-modal-alert' id='my-modal-alert-h' style="margin-left: 17%; margin-top: 28%; overflow-y: hidden">
+            <div class='modal-dialog boxBodySmall'>
+                <img src="images/Warning.png" style="width:20%;height:20%;" onclick="custom_close_h()" />
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        //给背景粒子高度设为网页全部正文高度，滚动条到的地方也包含
+        $("#particles-js")[0].style.setProperty('height', document.body.scrollHeight + "px");
+    </script>
+    <script src="js/echarts/time.js"></script>
+    <script src="js/echarts/echarts.js"></script>
+    <script type="text/javascript" src="js/echarts/gauge.js"></script>
+    <script src="js/echarts/workorderinfocharts.js"></script>
+    <script src="js/progress.js"></script>
+
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+
+    <!--动态粒子背景js-->
+    <script src="js/particles.min.js"></script>
+    <!--动态粒子背景js-->
+    <script src="js/app.js"></script>
+
+    <!--温度弹窗-->
+    <script>
+        var clearFlag = 0;
+        var count = 2;//设置3秒后自动消失
+        var showModal_T = function () {
+            $("#my-modal-alert-t").toggle();//显示模态框
+
+            $("#my-modal-alert-t").draggable({//设置模态框可拖动（需要引入jquery-ui.min.js）
+                handle: ".modal-header"
+            });
+
+            clearFlag = self.setInterval("autoClose_T()", 1000);//每过一秒调用一次autoClose方法
+        }
+
+        var autoClose_T = function () {
+            if (count > 0) {
+                //$("#num").html(count + "秒后窗口将自动关闭");
+                count--;
+            } else if (count <= 0) {
+                window.clearInterval(clearFlag);
+                $("#num").html("");
+                $("#my-modal-alert-t").fadeOut("slow");
+                count = 2;
+                $("#my-modal-alert-t").toggle();
+            }
+        }
+
+        var custom_close_t = function () {
+
+            window.clearInterval(clearFlag);
+            $("#num").html("");
+            $("#my-modal-alert-t").fadeOut("slow");
+            count = 3;
+            $("#my-modal-alert-t").toggle();
+
+        }
+    </script>
+
+    <!--湿度弹窗-->
+    <script>
+        var clearFlag = 0;
+        var count = 2;//设置3秒后自动消失
+        var showModal_H = function () {
+            $("#my-modal-alert-h").toggle();//显示模态框
+
+            $("#my-modal-alert-h").draggable({//设置模态框可拖动（需要引入jquery-ui.min.js）
+                handle: ".modal-header"
+            });
+
+            clearFlag = self.setInterval("autoClose_H()", 1000);//每过一秒调用一次autoClose方法
+        }
+
+        var autoClose_H = function () {
+            if (count > 0) {
+                //$("#num").html(count + "秒后窗口将自动关闭");
+                count--;
+            } else if (count <= 0) {
+                window.clearInterval(clearFlag);
+                $("#num").html("");
+                $("#my-modal-alert-h").fadeOut("slow");
+                count = 2;
+                $("#my-modal-alert-h").toggle();
+            }
+        }
+
+        var custom_close_h = function () {
+            //document.getElementById("my-modal-alert-h").window.autoClose();
+            //window.close();
+            // $("#my-modal-alert-h").hide();
+
+            window.clearInterval(clearFlag);
+            $("#num").html("");
+            $("#my-modal-alert-h").fadeOut("slow");
+            count = 3;
+            $("#my-modal-alert-h").toggle();
+
+        }
+    </script>
+
+
+    <script type="text/javascript">
+
+        if (!window.require) {
+            require = function (a, b) {
+                b(echarts);
+            };
+            require.config = function () { };
+        }
+
+        require.config({
+            paths: {
+                echarts: 'js/echarts'
+            }
+        });
+        require(
+            [
+                'echarts',
+                'echarts/chart/line', // 按需加载所需图表，如需动态类型切换功能，别忘了同时加载相应图表
+                'echarts/chart/bar'
+            ],
+            function (ec) {
+                var echar1 = echarts.init(document.getElementById('char1'));
+                var option1 = char01();
+                option1.color = ['#0000ff', '#ccff33', '#008000', '#ffff00'];
+                option1.legend.data = ['NO.10', 'NO.11', 'NO.12', 'NO.13'];
+                option1.title.text = "温度";
+                option1.xAxis[0].data = [];
+
+                option1.series[0].name = "NO.10";
+                option1.series[0].data = [];
+                option1.series[1].name = "NO.11";
+                option1.series[1].data = [];
+                option1.series[2].name = "NO.12";
+                option1.series[2].data = [];
+                option1.series[3].name = "NO.13";
+                option1.series[3].data = [];
+                echar1.setOption(option1);
+
+                var echar2 = echarts.init(document.getElementById('char2'));
+                var option2 = char02();
+                option2.color = ['#0000ff', '#ccff33', '#008000', '#ffff00'];
+                option2.legend.data = ['NO.10', 'NO.11', 'NO.12', 'NO.13'];
+                option2.title.text = "湿度";
+                option2.xAxis[0].data = [];
+
+                option2.series[0].name = "NO.10";
+                option2.series[0].data = [];
+                option2.series[1].name = "NO.11";
+                option2.series[1].data = [];
+                option2.series[2].name = "NO.12";
+                option2.series[2].data = [];
+                option2.series[3].name = "NO.13";
+                option2.series[3].data = [];
+                echar2.setOption(option2);
+
+                var gdata = gData();
+                clearInterval(timeTicket);
+                var timeTicket = setInterval(gData, 15000);
+                /**************************************时间格式化处理************************************/
+                function dateFtt(fmt, date) { //author: meizz
+                    var o = {
+                        "M+": date.getMonth() + 1,     //月份
+                        "d+": date.getDate(),          //日
+                        "h+": date.getHours(),         //小时
+                        "m+": date.getMinutes(),      //分
+                        "s+": date.getSeconds(),      //秒
+                        "q+": Math.floor((date.getMonth() + 3) / 3), //季度
+                        "S": date.getMilliseconds()    //毫秒
+                    };
+                    if (/(y+)/.test(fmt))
+                        fmt = fmt.replace(RegExp.$1, (date.getFullYear() + "").substr(4 - RegExp.$1.length));
+                    for (var k in o)
+                        if (new RegExp("(" + k + ")").test(fmt))
+                            fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+                    return fmt;
+                };
+                function gData() {
+                    $.ajax({
+                        type: "post",    //请求方式
+                        /* async: false,*/     //是否异步
+                        /*  url: "http://10.22.21.216:5702/api/WorkshopInfo/GetWarehouseTop24",*/
+                        url: "http://10.22.96.24:5705/api/WorkshopInfo/GetWarehouseTop24",
+                        dataType: "json",    //跨域json请求一定是jsonp
+                        success: function (data) {
+
+                            $("#LowerLimit_T").html("20℃");
+                            $("#UpLimit_T").html("28℃");
+                            $("#LowerLimit_H").html("45%");
+                            $("#UpLimit_H").html("75%");
+
+
+                            //温度
+                            var DT_10 = data.data_t10;
+                            var DT_11 = data.data_t11;
+                            var DT_12 = data.data_t12;
+                            var DT_13 = data.data_t13;
+
+                            var DTx1 = [];
+                            var DTy10 = [];
+                            var DTy11 = [];
+                            var DTy12 = [];
+                            var DTy13 = [];
+
+                            var f1 = true;
+                            for (var i = DT_10.length - 1; i > 0; i--) {
+
+                                //X轴
+                                var str = DT_10[i].AddDate;
+                                str = str.replace(/-/g, "-");//替换字符
+                                var date = new Date(str);//转化为时间格式
+                                str = dateFtt("MM/dd hh:mm", date);
+                                DTx1.push(str);
+
+                                DTy10.push(DT_10[i].RealValue);
+                                if (DT_10[i].RealValue > 28 && f1) {
+                                    showModal_T();
+                                    f1 = false;
+                                } else if (DT_10[i].RealValue < 20 && f1) {
+                                    showModal_T();
+                                    f1 = false;
+
+                                }
+
+                                DTy11.push(DT_11[i].RealValue);
+                                if (DT_11[i].RealValue > 28 && f1) {
+                                    showModal_T();
+                                    f1 = false;
+                                } else if (DT_11[i].RealValue < 20 && f1) {
+                                    showModal_T();
+                                    f1 = false;
+
+                                }
+
+                                DTy12.push(DT_12[i].RealValue);
+                                if (DT_12[i].RealValue > 28 && f1) {
+                                    showModal_T();
+                                    f1 = false;
+                                } else if (DT_12[i].RealValue < 20 && f1) {
+                                    showModal_T();
+                                    f1 = false;
+
+                                }
+
+                                DTy13.push(DT_13[i].RealValue);
+                                if (DT_13[i].RealValue > 28 && f1) {
+                                    showModal_T();
+                                    f1 = false;
+                                } else if (DT_13[i].RealValue < 20 && f1) {
+                                    showModal_T();
+                                    f1 = false;
+
+                                }
+                            }
+
+                            //湿度
+                            var DH_10 = data.data_h10;
+                            var DH_11 = data.data_h11;
+                            var DH_12 = data.data_h12;
+                            var DH_13 = data.data_h13;
+
+                            var DHx2 = [];
+                            var DHy10 = [];
+                            var DHy11 = [];
+                            var DHy12 = [];
+                            var DHy13 = [];
+
+
+
+                            var f2 = true;
+                            for (var i = DH_10.length - 1; i > 0; i--) {
+                                var str = DH_10[i].AddDate;
+                                str = str.replace(/-/g, "-");//替换字符
+                                var date = new Date(str);//转化为时间格式
+                                str = dateFtt("MM/dd hh:mm", date);
+                                DHx2.push(str);
+
+                                DHy10.push(DH_10[i].RealValue);
+                                //console.log(DH_10[i].RealValue );
+                                if (DH_10[i].RealValue > 75 && f2) {
+                                    showModal_H();
+                                    f2 = false;
+                                } else if (DH_10[i].RealValue < 105 && f2) {
+                                    showModal_H();
+                                    f2 = false;
+                                }
+
+                                DHy11.push(DH_11[i].RealValue);
+                                if (DH_11[i].RealValue > 75 && f2) {
+                                    showModal_H();
+                                    f2 = false;
+                                } else if (DH_11[i].RealValue < 45 && f2) {
+                                    showModal_H();
+                                    f2 = false;
+                                }
+
+                                DHy12.push(DH_12[i].RealValue);
+                                if (DH_12[i].RealValue > 75 && f2) {
+                                    showModal_H();
+                                    f2 = false;
+                                } else if (DH_12[i].RealValue < 45 && f2) {
+                                    showModal_H();
+                                    f2 = false;
+                                }
+
+                                DHy13.push(DH_13[i].RealValue);
+                                if (DH_13[i].RealValue > 75 && f2) {
+                                    showModal_H();
+                                    f2 = false;
+                                } else if (DH_13[i].RealValue < 45 && f2) {
+                                    showModal_H();
+                                    f2 = false;
+                                }
+                            }
+
+                            option1.xAxis[0].data = DTx1;
+                            option1.series[0].data = DTy10;
+                            option1.series[1].data = DTy11;
+                            option1.series[2].data = DTy12;
+                            option1.series[3].data = DTy13;
+                            echar1.setOption(option1);
+
+                            option2.xAxis[0].data = DHx2;
+                            option2.series[0].data = DHy10;
+                            option2.series[1].data = DHy11;
+                            option2.series[2].data = DHy12;
+                            option2.series[3].data = DHy13;
+                            echar2.setOption(option2);
+
+                        },
+                        error: function (msg) {
+                            console.log('api:GetTestData,error:' + msg.responseText);
+                        }
+                    });
+
+                }
+            }
+        );
+
+    </script>
+</body>
+</html>

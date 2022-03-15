@@ -1,0 +1,170 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+
+
+/******************** 容器样式 ********************/
+.container-01 {
+    position: relative;
+    /*min-height: 240px;
+	min-width: 240px;*/
+    /*width: 48vw;*/
+    height: 40vh;
+    margin: 0px auto;
+    border:solid 1px #3baadb;
+}
+
+    /* 容器顶部 */
+.container-01 .container-top {
+	position: absolute;
+	/*background: url(../images/border/container_top_left.png) no-repeat left top;*/
+	top: 0px;
+	width: 100%;
+	height: 131px;
+}
+
+.container-01 .container-top:before {
+	content: "";
+	/*background: url(../images/border/container_top_right.png) no-repeat right 0px;*/
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	height: 131px;
+	width: 25px;
+}
+
+.container-01 .container-top .container-top-L-repeat {
+	position: absolute;
+	/*background: url(../images/border/container_top_center.png) repeat-x left 0px;*/
+	top: 0px;
+	left: 25px;
+	height: 37px;
+    /*width: 13vw;*/
+    width:21%;
+}
+
+.container-01 .container-top .container-top-R-repeat {
+	position: absolute;
+	/*background: url(../images/border/container_top_center.png) repeat-x left 0px;*/
+	top: 0px;
+	right: 25px;
+	height: 37px;
+    /*width: 13vw;*/
+    width:21%;
+}
+
+    /* 容器中部 */
+.container-01 .container-middle-L {
+	/*background: url(../images/border/container_middle_left.png) repeat-y left 0px;*/
+	position: absolute;
+	left: 0px;
+	top: 134px;
+	bottom: 104px;
+	width: 25px;
+}
+
+.container-01 .container-middle-R {
+	/*background: url(../images/border/container_middle_right.png) repeat-y right 0px;*/
+	position: absolute;
+	right: 0px;
+	top: 134px;
+	bottom: 104px;
+	width: 25px;
+}
+
+    /* 容器底部 */
+.container-01 .container-bottom {
+	position: absolute;
+	/*background: url(../images/border/container_bottom_left.png) no-repeat left top;*/
+	bottom: 0px;
+	width: 100%;
+	height: 104px;
+}
+
+.container-01 .container-bottom:before {
+	content: "";
+	/*background: url(../images/border/container_bottom_right.png) no-repeat right 0px;*/
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	height: 104px;
+	width: 25px;
+}
+
+.container-01 .container-bottom:after {
+	content: "";
+	position: absolute;
+	/*background: url(../images/border/container_bottom_center.png) repeat-x left bottom;*/
+	top: 0px;
+	left: 25px;
+	right: 25px;
+	height: 104px;
+}
+
+    /* 容器标题 */
+.container-01 .container-title {
+	background: url(../images/border/container_title_left.png) no-repeat left top;
+	margin:-18px auto;
+	position: relative;
+    /*width: 15vw;*/
+    width:35%;
+}
+
+    .container-01 .container-title .container-title-R {
+        background: url(../images/border/container_title_right.png) no-repeat right top;
+    }
+
+        .container-01 .container-title .container-title-R .container-title-C {
+            background: url(../images/border/container_title_center.png) repeat-x left top;
+            margin: 0px 15px;
+            height: 37px;
+            color: #00ffff;
+            font: 16px/37px 'Microsoft YaHei';
+            text-align: center;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+    /* 容器内容 */
+.container-01 .container-main {
+	position: absolute;
+	top: 37px;
+	bottom: 15px;
+	left: 10px;
+	right: 10px;
+	overflow: hidden;
+    white-space: nowrap;
+}
+
+.container_vh270{
+    height:27vh;
+}
+.container_vh350 {
+    height: 35vh;
+}
+.container_vh480 {
+    height: 48vh;
+}
+.container_vh560 {
+    height: 56vh;
+}
+
+@media (max-width: 480px) {
+    .container-01 {
+        width: 100vw;
+        margin-bottom: 2vh;
+    }
+
+    .container-01 .container-title {
+        width: 30vw;
+    }
+
+    .container-01 .container-top .container-top-L-repeat, .container-01 .container-top .container-top-R-repeat {
+        width: 26vw;
+    }
+
+    .rmtitle strong {
+        /*font-size: 4vw;*/
+    }
+}

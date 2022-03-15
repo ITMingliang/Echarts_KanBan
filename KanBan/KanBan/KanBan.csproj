@@ -42,13 +42,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="Alert.html" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\common.css" />
     <Content Include="css\contain.css" />
     <Content Include="css\font-awesome.css" />
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\style.css" />
+    <Content Include="ExportData.html" />
+    <Content Include="FATP1.html" />
+    <Content Include="FATP0.html" />
     <Content Include="fonts\AgencyFB.eot" />
     <Content Include="fonts\AgencyFB.ttf" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -81,14 +83,16 @@
     <Content Include="images\pr\LiquidInjection.png" />
     <Content Include="images\pr\X-Ray.png" />
     <Content Include="images\Warning.png" />
-    <Content Include="index2.html" />
+    <Content Include="Demo.html" />
     <Content Include="js\4031.mp3" />
     <Content Include="js\app.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\contain.js" />
+    <Content Include="js\echarts\workorderinfocharts2.js" />
     <Content Include="js\echarts\echarts-liquidfill.js" />
     <Content Include="js\echarts\echarts-liquidfill_b.js" />
     <Content Include="js\echarts\mooutputcharts.js" />
+    <Content Include="js\echarts\functions.js" />
     <Content Include="js\echarts\workorderinfocharts.js" />
     <Content Include="js\echarts\workoutputcharts.js" />
     <Content Include="js\jquery-ui.min.js" />
@@ -100,8 +104,10 @@
     <Content Include="js\progress.js" />
     <Content Include="js\status.js" />
     <Content Include="js\stopExecutionOnTimeout.js" />
+    <Content Include="NB.html" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="TemperatureAndHumidity.html" />
+    <Content Include="SMT.html" />
+    <Content Include="FATP.html" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />
@@ -232,6 +238,8 @@
     <Content Include="js\echarts\gauge.js" />
     <Content Include="js\echarts\time.js" />
     <Content Include="js\jquery-3.2.1.min.js" />
+    <Content Include="test.html" />
+    <Content Include="WareHouse.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>

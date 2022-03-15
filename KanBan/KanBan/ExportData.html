@@ -1,0 +1,159 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>温湿度数据导出</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/prefixfree.min.js"></script>
+
+    <link href="css/main.css" rel="stylesheet" />
+    <link href="css/contain.css" rel="stylesheet" />
+    <link href="css/common.css" rel="stylesheet" />
+    <script src="js/status.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/contain.js"></script>
+</head>
+<body>
+
+    <style>
+        .mainDIV {
+            margin-top: 3%;
+            /*margin-left:15%;*/
+            text-align: center
+        }
+
+        .opt{
+            width:100px;
+            height:30px;
+        }
+        .bt {
+            width: 60px;
+            height: 30px;
+            background-color:gainsboro;
+        }
+
+        .sp {
+            /*margin-left:5%;*/
+        }
+    </style>
+    <div id="particles-js"></div>
+    <a href="index.html" target="_blank" style=" color:lemonchiffon;font-weight:bold">
+        主页
+    </a>
+
+    <div id="query" class="mainDIV">
+        <div>
+            <span>选择查询起始时间:</span>
+            <input type="date" id="from_datetime" required="required">
+            <span style=" margin-left: 10%;">选择查询结束时间：</span>
+            <input type="date" id="end_datetime" required="required" format="yyyy-MM-dd">
+        </div>
+        <div style="margin-top: 20px;">
+            <div>
+                <span >选择查询类型:</span>
+                <select id="QueryType" class="opt">
+                    <option value="0">请选择</option>
+                    <option value="温度">温度℃</option>
+                    <option value="湿度">湿度%</option>
+                </select>
+                <span style=" margin-left: 15%;">选择设备编号:</span>
+                <select id="QueryNumber" class="opt">
+                    <option  value="0">请选择</option>
+                    <option  value="1001">NO.01</option>
+                    <option  value="1002">NO.02</option>
+                    <option  value="1003">NO.03</option>
+                    <option  value="1004">NO.04</option>
+                    <option  value="1005">NO.05</option>
+                    <option  value="1006">NO.06</option>
+                    <option  value="1007">NO.07</option>
+                    <option  value="1008">NO.08</option>
+                    <option  value="1009">NO.09</option>
+                    <option  value="1010">NO.10</option>
+                    <option  value="1011">NO.11</option>
+                    <option  value="1012">NO.12</option>
+                    <option  value="1013">NO.13</option>
+                </select>
+            </div>
+           
+        </div>
+    </div>
+    <div style="margin-top: 20px; margin-left:33%">
+        <input type="button" id="bt_export" class="bt" value="导出" onclick="ExportFunc()">
+    </div>
+
+
+    <script>
+
+        //这里是通过后台传递的初始时间参数，你测试可以不需要
+        //时间默认值，默认当前时间
+        var dataCur = new Date();
+        var sdataYMD = dataCur.getFullYear() + '-' + ("0" + (dataCur.getMonth())).slice(-2) + '-' + (dataCur.getDate())
+        var edataYMD = dataCur.getFullYear() + '-' + ("0" + (dataCur.getMonth() + 1)).slice(-2) + '-' + (dataCur.getDate())
+        var dataStart = sdataYMD;
+        var dataEnd = edataYMD;
+
+        $("#from_datetime").val(dataStart);
+        $("#end_datetime").val(dataEnd);
+        //$('#end_datetime').attr('value', dataEnd);
+        //document.getElementById("end_datetime").value = dataEnd;
+
+        function ExportFunc() {
+            var paramName = $('#QueryType option:selected').val();
+            var eqpCode = $('#QueryNumber option:selected').val();
+            var from = $('#from_datetime').val();
+            var end = $('#end_datetime').val();
+
+            if (paramName == "0" | eqpCode=="0")
+            {
+                alert("请选择正确的查询类型和设备编号！");
+            }
+            else
+            {
+                $.ajax({
+                    type: "post",    //请求方式
+                    /* async: false,*/     //是否异步
+                    /* url: "http://10.22.21.216:5702/api/WorkshopInfo/GetFATPCurrent",*/
+                    url: "http://10.22.96.24:5705/api/WorkshopInfo/GetDataByTime?eqpCode=" + eqpCode + "&paramName=" + paramName + "&from=" + from + "&end=" + end,
+                    dataType: "json",    //跨域json请求一定是jsonp
+                    success: function (data) {
+                        var jsonData = data.data;
+                        //console.log(jsonData.length);
+
+                        //列标题，逗号隔开，每一个逗号就是隔开一个单元格
+                        let str = `ID,EqpCode,EqpName,IPAddress,ParamCode,ParamName,UpLimit,LowerLimit,StandardValue,RealValue,Result,Unit,AddDate\n`;
+                        //增加\t为了不让表格显示科学计数法或者其他格式
+                        for (let i = 0; i < jsonData.length; i++) {
+                            for (let item in jsonData[i]) {
+                                str += `${jsonData[i][item] + '\t'},`;
+                            }
+                            str += '\n';
+                        }
+                        //encodeURIComponent解决中文乱码
+                        let uri = 'data:text/csv;charset=utf-8,\ufeff' + encodeURIComponent(str);
+                        //通过创建a标签实现
+                        let link = document.createElement("a");
+                        link.href = uri;
+                        //对下载的文件命名
+                        link.download = eqpCode + "_" + paramName + "_" + from.replace('/', '-') + "_" + end.replace('/', '-') + ".csv";
+                        console.log(link.download);
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+
+                    },
+                    error: function (msg) {
+                        console.log('api:getFATPCurrentData,error:' + msg.responseText);
+                    }
+                });
+            }
+        }
+
+    </script>
+
+
+
+</body>
+</html>

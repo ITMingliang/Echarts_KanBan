@@ -19,62 +19,196 @@
     <script src="js/echarts/echarts-liquidfill.js"></script>
 </head>
 <body>
-    <div class="stars"></div>
-    <header class="cd-main-header">
-        <a class="cd-logo" href="#0">
-            <img src="images/nav/boe.png" alt="Logo" height="50">
-        </a>
-        <ul class="cd-header-buttons">
-            <li><a class="cd-nav-trigger" href="#cd-primary-nav">Menu<span></span></a></li>
-        </ul>
-        <!-- cd-header-buttons -->
-    </header>
+    <div id="particles-js"></div>
+    <div style="width:100%;height:100%;">
 
-    <!--背景覆盖-->
-    <!--<main class="cd-main-content">-->
-    <!-- your content here -->
-    <!--<div class="cd-overlay"></div>
-    </main>-->
-    <!--菜单标题-->
-    <nav class="cd-nav">
-        <ul id="cd-primary-nav" class="cd-primary-nav is-fixed">
+        <!--SMT-->
+        <div style="width: 50%; height: 50%; float: left; border: double #6600ff 1px; ">
 
-            <!--层叠标题-->
-            <li class="has-children">
-                <a href="#">预留信息栏</a>
-                <ul class="cd-nav-gallery is-hidden">
-                    <li class="go-back"><a href="#0">Menu</a></li>
-                    <!--<li>
-                        <a class="cd-nav-item" href="TemperatureAndHumidity.html" target="_blank">
-                            <h3>温湿度</h3>
+            <div style="width: 50%; height: 50%; float: left; border: 1px solid #666666;">
+                <span style=" display: flex; flex-direction: row; height: 220px; border: 0px solid #666666;">
+                    <span id="char1_T" style="width: 250px; height: 220px; "></span>
+                    <span style=" color: yellow; font-weight: bold; vertical-align: middle; margin-right: 10%;">
+                        <a class="cd-nav-item" href="SMT.html" target="_blank" style=" color: yellow;">
+                            NO.1
                         </a>
-                    </li>-->
-                </ul>
-            </li>
-            <!--<li>
-                <a class="cd-nav-item" href="TemperatureAndHumidity.html" target="_blank">
-                    <h3>温湿度</h3>
+                    </span>
+                    <span id="char1_H" style="width: 200px; height: 220px; margin-left: -50px;"></span>
+                </span>
+            </div>
+            <div style="width: 50%; height: 50%; float: left; border: 1px solid #666666; ">
+                <span style=" display: flex; flex-direction: row; height: 220px; border: 0px solid #666666;">
+                    <span id="char2_T" style="width: 250px; height: 220px; "></span>
+                    <span style=" color: yellow; font-weight: bold; vertical-align: middle;  margin-right: 10%;">
+                        <a class="cd-nav-item" href="SMT.html" target="_blank" style=" color: yellow;">
+                            NO.2
+                        </a>
+                    </span>
+                    <span id="char2_H" style="width: 200px; height: 220px; margin-left: -50px;"></span>
+                </span>
+            </div>
+            <div style="font-weight:bold;font-size:22px; vertical-align: middle; text-align: center">
+                <a href="SMT.html" target="_blank" style=" color: fuchsia;">
+                    SMT
                 </a>
-            </li>-->
+            </div>
+            <div style="width: 50%; height: 50%; float: left; border: 1px solid #666666; border-bottom: 0px; ">
+                <span style=" display: flex; flex-direction: row; height: 220px; border: 0px solid #666666;">
+                    <span id="char3_T" style="width: 250px; height: 220px; "></span>
+                    <span style=" color: yellow; font-weight: bold; vertical-align: middle;  margin-right: 10%;">
+                        <a class="cd-nav-item" href="SMT.html" target="_blank" style=" color: yellow;">
+                            NO.3
+                        </a>
+                    </span>
+                    <span id="char3_H" style="width: 200px; height: 220px; margin-left: -50px;"></span>
+                </span>
+            </div>
 
-        </ul>
-        <!-- primary-nav -->
-    </nav>
 
-    <!--温湿度-->
-    <div class="cont_h350 margin_top_22 cont_row">
-        <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
-        <span style=" display: flex; flex-direction: row; height: 250px; border: 1px solid #666666;">
-            <!--<span>区域一</span>-->
-            <span id="char1" style="width: 300px; height: 250px; "></span>
-            <span style=" color: yellow; font-weight: bold; vertical-align: middle; margin-top: 3%;"> 
-                <a class="cd-nav-item" href="TemperatureAndHumidity.html" target="_blank" style=" color: yellow;">
-                    区域一
+        </div>
+        <!--FATP-->
+        <div style="width: 50%; height: 50%; float: left; border: double #6600ff 1px; ">
+            <div style="width: 50%; height: 50%; float: left; border: 1px solid #666666;">
+                <span style=" display: flex; flex-direction: row; height: 220px; border: 0px solid #666666;">
+                    <span id="char4_T" style="width: 250px; height: 220px; "></span>
+                    <span style=" color: yellow; font-weight: bold; vertical-align: middle; margin-right: 10%;">
+                        <a class="cd-nav-item" href="FATP.html" target="_blank" style=" color: yellow;">
+                            NO.4
+                        </a>
+                    </span>
+                    <span id="char4_H" style="width: 200px; height: 220px; margin-left: -50px;"></span>
+                </span>
+            </div>
+            <div style="width: 50%; height: 50%; float: left; border: 1px solid #666666;">
+                <span style=" display: flex; flex-direction: row; height: 220px; border: 0px solid #666666;">
+                    <span id="char5_T" style="width: 250px; height: 220px; "></span>
+                    <span style=" color: yellow; font-weight: bold; vertical-align: middle;  margin-right: 10%;">
+                        <a class="cd-nav-item" href="FATP.html" target="_blank" style=" color: yellow;">
+                            NO.5
+                        </a>
+                    </span>
+                    <span id="char5_H" style="width: 200px; height: 220px; margin-left: -50px;"></span>
+                </span>
+            </div>
+            <div style="font-weight:bold;font-size:22px; vertical-align: middle; text-align: center">
+                <a href="FATP.html" target="_blank" style=" color: fuchsia;">
+                    FATP
                 </a>
-            </span>
-            <span id="char2" style="width: 300px; height: 250px;  margin-left: -10px; "></span>
-        </span>
+            </div>
+            <div style="width: 50%; height: 50%; float: left; border: 1px solid #666666; border-bottom: 0px; ">
+                <span style=" display: flex; flex-direction: row; height: 220px; border: 0px solid #666666;">
+                    <span id="char6_T" style="width: 250px; height: 220px; "></span>
+                    <span style=" color: yellow; font-weight: bold; vertical-align: middle;  margin-right: 10%;">
+                        <a class="cd-nav-item" href="FATP.html" target="_blank" style=" color: yellow;">
+                            NO.6
+                        </a>
+                    </span>
+                    <span id="char6_H" style="width: 200px; height: 220px; margin-left: -50px;"></span>
+                </span>
+            </div>
+            <div style="width: 50%; height: 50%; float: left; border: 1px solid #666666; border-bottom: 0px; ">
+                <span style=" display: flex; flex-direction: row; height: 220px; border: 0px solid #666666;">
+                    <span id="char7_T" style="width: 250px; height: 220px; "></span>
+                    <span style=" color: yellow; font-weight: bold; vertical-align: middle;  margin-right: 10%;">
+                        <a class="cd-nav-item" href="FATP.html" target="_blank" style=" color: yellow;">
+                            NO.7
+                        </a>
+                    </span>
+                    <span id="char7_H" style="width: 200px; height: 220px; margin-left: -50px;"></span>
+                </span>
+            </div>
+
+        </div>
+
+        <!--NB-->
+        <div style="width: 50%; height: 50%; float: left; border: double #6600ff 1px; ">
+            <div style="width: 50%; height: 50%; float: left; border: 1px solid #666666; ">
+                <span style=" display: flex; flex-direction: row; height: 220px; border: 0px solid #666666;">
+                    <span id="char8_T" style="width: 250px; height: 220px; "></span>
+                    <span style=" color: yellow; font-weight: bold; vertical-align: middle; margin-right: 10%;">
+                        <a class="cd-nav-item" href="NB.html" target="_blank" style=" color: yellow;">
+                            NO.8
+                        </a>
+                    </span>
+                    <span id="char8_H" style="width: 200px; height: 220px; margin-left: -50px;"></span>
+                </span>
+            </div>
+
+            <div style="width: 50%; height: 50%; float: left; border: 1px solid #666666;">
+                <span style=" display: flex; flex-direction: row; height: 220px; border: 0px solid #666666;">
+                    <span id="char9_T" style="width: 250px; height: 220px; "></span>
+                    <span style=" color: yellow; font-weight: bold; vertical-align: middle;  margin-right: 10%;">
+                        <a class="cd-nav-item" href="NB.html" target="_blank" style=" color: yellow;">
+                            NO.9
+                        </a>
+                    </span>
+                    <span id="char9_H" style="width: 200px; height: 220px; margin-left: -50px;"></span>
+                </span>
+            </div>
+            <div style="font-weight:bold;font-size:22px; vertical-align: middle; text-align: center">
+                <a href="NB.html" target="_blank" style=" color: fuchsia;">
+                    NB
+                </a>
+            </div>
+
+        </div>
+
+        <!--WareHouse-->
+        <div style="width: 50%; height: 50%; float: left; border: double #6600ff 1px; ">
+            <div style="width: 50%; height: 50%; float: left; border: 1px solid #666666;">
+                <span style=" display: flex; flex-direction: row; height: 220px; border: 0px solid #666666;">
+                    <span id="char10_T" style="width: 250px; height: 220px; "></span>
+                    <span style=" color: yellow; font-weight: bold; vertical-align: middle; margin-right: 10%;">
+                        <a class="cd-nav-item" href="WareHouse.html" target="_blank" style=" color: yellow;">
+                            NO.10
+                        </a>
+                    </span>
+                    <span id="char10_H" style="width: 200px; height: 220px; margin-left: -50px;"></span>
+                </span>
+            </div>
+            <div style="width: 50%; height: 50%; float: left; border: 1px solid #666666;">
+                <span style=" display: flex; flex-direction: row; height: 220px; border: 0px solid #666666;">
+                    <span id="char11_T" style="width: 250px; height: 220px; "></span>
+                    <span style=" color: yellow; font-weight: bold; vertical-align: middle;  margin-right: 10%;">
+                        <a class="cd-nav-item" href="WareHouse.html" target="_blank" style=" color: yellow;">
+                            NO.11
+                        </a>
+                    </span>
+                    <span id="char11_H" style="width: 200px; height: 220px; margin-left: -50px;"></span>
+                </span>
+            </div>
+            <div style="font-weight:bold;font-size:22px; vertical-align: middle; text-align: center">
+                <a href="WareHouse.html" target="_blank" style=" color: fuchsia;">
+                    仓库
+                </a>
+            </div>
+            <div style="width: 50%; height: 50%; float: left; border: 1px solid #666666;">
+                <span style=" display: flex; flex-direction: row; height: 220px; border: 0px solid #666666;">
+                    <span id="char12_T" style="width: 250px; height: 220px; "></span>
+                    <span style=" color: yellow; font-weight: bold; vertical-align: middle;  margin-right: 10%;">
+                        <a class="cd-nav-item" href="WareHouse.html" target="_blank" style=" color: yellow;">
+                            NO.12
+                        </a>
+                    </span>
+                    <span id="char12_H" style="width: 200px; height: 220px; margin-left: -50px;"></span>
+                </span>
+            </div>
+            <div style="width: 50%; height: 50%; float: left; border: 1px solid #666666; ">
+                <span style=" display: flex; flex-direction: row; height: 220px; border: 0px solid #666666;">
+                    <span id="char13_T" style="width: 250px; height: 220px; "></span>
+                    <span style=" color: yellow; font-weight: bold; vertical-align: middle;  margin-right: 10%;">
+                        <a class="cd-nav-item" href="WareHouse.html" target="_blank" style=" color: yellow;">
+                            NO.13
+                        </a>
+                    </span>
+                    <span id="char13_H" style="width: 200px; height: 220px; margin-left: -50px;"></span>
+                </span>
+            </div>
+
+        </div>
+
     </div>
+
 
     <sdcript src="js/jquery-3.2.1.min.js"></sdcript>
     <script src="js/main.js"></script>
@@ -86,6 +220,7 @@
     <script src="js/echarts/echarts-liquidfill.js"></script>
     <script type="text/javascript" src="js/echarts/gauge.js"></script>
     <script src="js/echarts/workorderinfocharts.js"></script>
+    <script src="js/echarts/functions.js"></script>
     <script src="js/progress.js"></script>
 
     <script type="text/javascript">
@@ -109,48 +244,333 @@
                 'echarts/chart/bar'
             ],
             function (ec) {
-                var echar1 = echarts.init(document.getElementById('char1'));
-                var option1 = char08(parseFloat("0"));
-                echar1.setOption(option1);
 
-                var echar2 = echarts.init(document.getElementById('char2'));
-                var option2 = char07(parseFloat("0"));
-                echar2.setOption(option2);
+                //FATP
+                var echar4_T = echarts.init(document.getElementById('char4_T'));
+                var option4_T = char08(parseFloat("0"));
+                echar4_T.setOption(option4_T);
+                var echar4_H = echarts.init(document.getElementById('char4_H'));
+                var option4_H = char07(parseFloat("0"));
+                echar4_H.setOption(option4_H);
 
-                var gdata = gData();
-                clearInterval(timeTicket);
-                var timeTicket = setInterval(gData, 5000);
-                function gData() {
+                var echar5_T = echarts.init(document.getElementById('char5_T'));
+                var option5_T = char08(parseFloat("0"));
+                echar5_T.setOption(option5_T);
+                var echar5_H = echarts.init(document.getElementById('char5_H'));
+                var option5_H = char07(parseFloat("0"));
+                echar5_H.setOption(option5_H);
+
+                var echar6_T = echarts.init(document.getElementById('char6_T'));
+                var option6_T = char08(parseFloat("0"));
+                echar6_T.setOption(option6_T);
+                var echar6_H = echarts.init(document.getElementById('char6_H'));
+                var option6_H = char07(parseFloat("0"));
+                echar6_H.setOption(option6_H);
+
+                var echar7_T = echarts.init(document.getElementById('char7_T'));
+                var option7_T = char08(parseFloat("0"));
+                echar7_T.setOption(option7_T);
+                var echar7_H = echarts.init(document.getElementById('char7_H'));
+                var option7_H = char07(parseFloat("0"));
+                echar7_H.setOption(option7_H);
+
+                var FATPdata = getFATPCurrentData();
+                clearInterval(timeTicket1);
+                var timeTicket1 = setInterval(FATPdata, 300000);//5分钟刷新一次
+
+                function getFATPCurrentData() {
                     $.ajax({
                         type: "post",    //请求方式
                         /* async: false,*/     //是否异步
-                        url: "http://10.22.21.216:5702/api/WorkshopInfo/GetCurrent",
+                        /* url: "http://10.22.21.216:5702/api/WorkshopInfo/GetFATPCurrent",*/
+                        url: "http://10.22.96.24:5705/api/WorkshopInfo/GetFATPCurrent",
                         dataType: "json",    //跨域json请求一定是jsonp
                         success: function (data) {
 
-                            //console.log('api:GetTestData:' + data+"");
-                            var part1 = data.part1;
-                            var part2 = data.part2;
-
+                            var DT4 = data.data_t4;
+                            var DH4 = data.data_h4;
                             //温度
-                            var t_value = part1[0].RealValue;;
-                            option1 = char08(parseFloat(t_value));
-                            echar1.setOption(option1);
-
+                            var DT4_value = DT4[0].RealValue;;
+                            option4_T = char08(parseFloat(DT4_value));
+                            echar4_T.setOption(option4_T);
                             //湿度
-                            var h_value = part2[0].RealValue;
-                            option2 = char07(parseFloat(h_value));
-                            //console.log(parseFloat(h_value));
-                            echar2.setOption(option2);
+                            var DH4_value = DH4[0].RealValue;
+                            option4_H = char07(parseFloat(DH4_value));
+                            echar4_H.setOption(option4_H);
+
+                            var DT5 = data.data_t5;
+                            var DH5 = data.data_h5;
+                            //温度
+                            var DT5_value = DT5[0].RealValue;;
+                            option5_T = char08(parseFloat(DT5_value));
+                            echar5_T.setOption(option5_T);
+                            //湿度
+                            var DH5_value = DH5[0].RealValue;
+                            option5_H = char07(parseFloat(DH5_value));
+                            echar5_H.setOption(option5_H);
+
+                            var DT6 = data.data_t6;
+                            var DH6 = data.data_h6;
+                            //温度
+                            var DT6_value = DT6[0].RealValue;;
+                            option6_T = char08(parseFloat(DT6_value));
+                            echar6_T.setOption(option6_T);
+                            //湿度
+                            var DH6_value = DH6[0].RealValue;
+                            option6_H = char07(parseFloat(DH6_value));
+                            echar6_H.setOption(option6_H);
+
+                            var DT7 = data.data_t7;
+                            var DH7 = data.data_h7;
+                            //温度
+                            var DT7_value = DT7[0].RealValue;;
+                            option7_T = char08(parseFloat(DT7_value));
+                            echar7_T.setOption(option7_T);
+                            //湿度
+                            var DH7_value = DH7[0].RealValue;
+                            option7_H = char07(parseFloat(DH7_value));
+                            echar7_H.setOption(option7_H);
 
                         },
                         error: function (msg) {
-                            console.log('api:GetTestData,error:' + msg.responseText);
+                            console.log('api:getFATPCurrentData,error:' + msg.responseText);
                         }
                     });
 
                 }
-            }
+
+                //仓库
+                var echar10_T = echarts.init(document.getElementById('char10_T'));
+                var option10_T = char08(parseFloat("0"));
+                echar10_T.setOption(option10_T);
+                var echar10_H = echarts.init(document.getElementById('char10_H'));
+                var option10_H = char07(parseFloat("0"));
+                echar10_H.setOption(option10_H);
+
+                var echar11_T = echarts.init(document.getElementById('char11_T'));
+                var option11_T = char08(parseFloat("0"));
+                echar11_T.setOption(option11_T);
+                var echar11_H = echarts.init(document.getElementById('char11_H'));
+                var option11_H = char07(parseFloat("0"));
+                echar11_H.setOption(option11_H);
+
+                var echar12_T = echarts.init(document.getElementById('char12_T'));
+                var option12_T = char08(parseFloat("0"));
+                echar12_T.setOption(option12_T);
+                var echar12_H = echarts.init(document.getElementById('char12_H'));
+                var option12_H = char07(parseFloat("0"));
+                echar12_H.setOption(option12_H);
+
+                var echar13_T = echarts.init(document.getElementById('char13_T'));
+                var option13_T = char08(parseFloat("0"));
+                echar13_T.setOption(option13_T);
+                var echar13_H = echarts.init(document.getElementById('char13_H'));
+                var option13_H = char07(parseFloat("0"));
+                echar13_H.setOption(option13_H);
+
+                var WareHousedata = getWareHouseCurrentData();
+                clearInterval(timeTicket2);
+                var timeTicket2 = setInterval(WareHousedata, 300000);//5分钟刷新一次
+
+                function getWareHouseCurrentData() {
+                    $.ajax({
+                        type: "post",    //请求方式
+                        /* async: false,*/     //是否异步
+                        /* url: "http://10.22.21.216:5702/api/WorkshopInfo/GetWarehouseCurrent",*/
+                        url: "http://10.22.96.24:5705/api/WorkshopInfo/GetWarehouseCurrent",
+                        dataType: "json",    //跨域json请求一定是jsonp
+                        success: function (data) {
+
+                            var DT10 = data.data_t10;
+                            var DH10 = data.data_h10;
+                            //温度
+                            var DT10_value = DT10[0].RealValue;;
+                            option10_T = char08(parseFloat(DT10_value));
+                            echar10_T.setOption(option10_T);
+                            //湿度
+                            var DH10_value = DH10[0].RealValue;
+                            option10_H = char07(parseFloat(DH10_value));
+                            echar10_H.setOption(option10_H);
+
+                            var DT11 = data.data_t11;
+                            var DH11 = data.data_h11;
+                            //温度
+                            var DT11_value = DT11[0].RealValue;;
+                            option11_T = char08(parseFloat(DT11_value));
+                            echar11_T.setOption(option11_T);
+                            //湿度
+                            var DH11_value = DH11[0].RealValue;
+                            option11_H = char07(parseFloat(DH11_value));
+                            echar11_H.setOption(option11_H);
+
+                            var DT12 = data.data_t12;
+                            var DH12 = data.data_h12;
+                            //温度
+                            var DT12_value = DT12[0].RealValue;;
+                            option12_T = char08(parseFloat(DT12_value));
+                            echar12_T.setOption(option12_T);
+                            //湿度
+                            var DH12_value = DH12[0].RealValue;
+                            option12_H = char07(parseFloat(DH12_value));
+                            echar12_H.setOption(option12_H);
+
+                            var DT13 = data.data_t13;
+                            var DH13 = data.data_h13;
+                            //温度
+                            var DT13_value = DT13[0].RealValue;;
+                            option13_T = char08(parseFloat(DT13_value));
+                            echar13_T.setOption(option13_T);
+                            //湿度
+                            var DH13_value = DH13[0].RealValue;
+                            option13_H = char07(parseFloat(DH13_value));
+                            echar13_H.setOption(option13_H);
+
+                        },
+                        error: function (msg) {
+                            console.log('api:GetWarehouseCurrent,error:' + msg.responseText);
+                        }
+                    });
+
+                }
+
+                //SMT
+                var echar1_T = echarts.init(document.getElementById('char1_T'));
+                var option1_T = char08(parseFloat("0"));
+                echar1_T.setOption(option1_T);
+                var echar1_H = echarts.init(document.getElementById('char1_H'));
+                var option1_H = char07(parseFloat("0"));
+                echar1_H.setOption(option1_H);
+
+                var echar2_T = echarts.init(document.getElementById('char2_T'));
+                var option2_T = char08(parseFloat("0"));
+                echar2_T.setOption(option2_T);
+                var echar2_H = echarts.init(document.getElementById('char2_H'));
+                var option2_H = char07(parseFloat("0"));
+                echar2_H.setOption(option2_H);
+
+                var echar3_T = echarts.init(document.getElementById('char3_T'));
+                var option3_T = char08(parseFloat("0"));
+                echar3_T.setOption(option3_T);
+                var echar3_H = echarts.init(document.getElementById('char3_H'));
+                var option3_H = char07(parseFloat("0"));
+                echar3_H.setOption(option3_H);
+
+
+                var SMTdata = getSMTCurrentData();
+                clearInterval(timeTicket3);
+                var timeTicket3 = setInterval(SMTdata, 300000);//5分钟刷新一次
+
+                function getSMTCurrentData() {
+                    $.ajax({
+                        type: "post",    //请求方式
+                        /* async: false,*/     //是否异步
+                        /* url: "http://10.22.21.216:5702/api/WorkshopInfo/GetSMTCurrent",*/
+                        url: "http://10.22.96.24:5705/api/WorkshopInfo/GetSMTCurrent",
+                        dataType: "json",    //跨域json请求一定是jsonp
+                        success: function (data) {
+
+                            var DT1 = data.data_t1;
+                            var DH1 = data.data_h1;
+                            //温度
+                            var DT1_value = DT1[0].RealValue;;
+                            option1_T = char08(parseFloat(DT1_value));
+                            echar1_T.setOption(option1_T);
+                            //湿度
+                            var DH1_value = DH1[0].RealValue;
+                            option1_H = char07(parseFloat(DH1_value));
+                            echar1_H.setOption(option1_H);
+
+                            var DT2 = data.data_t2;
+                            var DH2 = data.data_h2;
+                            //温度
+                            var DT2_value = DT2[0].RealValue;;
+                            option2_T = char08(parseFloat(DT2_value));
+                            echar2_T.setOption(option2_T);
+                            //湿度
+                            var DH2_value = DH2[0].RealValue;
+                            option2_H = char07(parseFloat(DH2_value));
+                            echar2_H.setOption(option2_H);
+
+                            var DT3 = data.data_t3;
+                            var DH3 = data.data_h3;
+                            //温度
+                            var DT3_value = DT3[0].RealValue;;
+                            option3_T = char08(parseFloat(DT3_value));
+                            echar3_T.setOption(option3_T);
+                            //湿度
+                            var DH3_value = DH3[0].RealValue;
+                            option3_H = char07(parseFloat(DH3_value));
+                            echar3_H.setOption(option3_H);
+
+
+
+                        },
+                        error: function (msg) {
+                            console.log('api:GetSMTCurrent,error:' + msg.responseText);
+                        }
+                    });
+
+                }
+
+                //NB
+                var echar8_T = echarts.init(document.getElementById('char8_T'));
+                var option8_T = char08(parseFloat("0"));
+                echar8_T.setOption(option8_T);
+                var echar8_H = echarts.init(document.getElementById('char8_H'));
+                var option8_H = char07(parseFloat("0"));
+                echar8_H.setOption(option8_H);
+
+                var echar9_T = echarts.init(document.getElementById('char9_T'));
+                var option9_T = char08(parseFloat("0"));
+                echar9_T.setOption(option9_T);
+                var echar9_H = echarts.init(document.getElementById('char9_H'));
+                var option9_H = char07(parseFloat("0"));
+                echar9_H.setOption(option9_H);
+
+                var NBdata = getNBCurrentData();
+                clearInterval(timeTicket4);
+                var timeTicket4 = setInterval(NBdata, 300000);//5分钟刷新一次
+
+                function getNBCurrentData() {
+                    $.ajax({
+                        type: "post",    //请求方式
+                        /* async: false,*/     //是否异步
+                        /* url: "http://10.22.21.216:5702/api/WorkshopInfo/GetNBCurrent",*/
+                        url: "http://10.22.96.24:5705/api/WorkshopInfo/GetNBCurrent",
+                        dataType: "json",    //跨域json请求一定是jsonp
+                        success: function (data) {
+
+                            var DT8 = data.data_t8;
+                            var DH8 = data.data_h8;
+                            //温度
+                            var DT8_value = DT8[0].RealValue;;
+                            option8_T = char08(parseFloat(DT8_value));
+                            echar8_T.setOption(option8_T);
+                            //湿度
+                            var DH8_value = DH8[0].RealValue;
+                            option8_H = char07(parseFloat(DH8_value));
+                            echar8_H.setOption(option8_H);
+
+                            var DT9 = data.data_t9;
+                            var DH9 = data.data_h9;
+                            //温度
+                            var DT9_value = DT9[0].RealValue;;
+                            option9_T = char08(parseFloat(DT9_value));
+                            echar9_T.setOption(option9_T);
+                            //湿度
+                            var DH9_value = DH9[0].RealValue;
+                            option9_H = char07(parseFloat(DH9_value));
+                            echar9_H.setOption(option9_H);
+
+                        },
+                        error: function (msg) {
+                            console.log('api:getNBCurrentData,error:' + msg.responseText);
+                        }
+                    });
+
+                }
+            },
+
         );
     </script>
 </body>
