@@ -115,8 +115,8 @@
                 $.ajax({
                     type: "post",    //请求方式
                     /* async: false,*/     //是否异步
-                    /* url: "http://10.22.21.216:5702/api/WorkshopInfo/GetFATPCurrent",*/
-                    url: "http://10.22.96.24:5705/api/WorkshopInfo/GetDataByTime?eqpCode=" + eqpCode + "&paramName=" + paramName + "&from=" + from + "&end=" + end,
+                    url: "http://10.22.21.216:5702/api/WorkshopInfo/GetDataByTime?eqpCode=" + eqpCode + "&paramName=" + paramName + "&from=" + from + "&end=" + end,
+                    //url: "http://10.22.96.24:5705/api/WorkshopInfo/GetDataByTime?eqpCode=" + eqpCode + "&paramName=" + paramName + "&from=" + from + "&end=" + end,
                     dataType: "json",    //跨域json请求一定是jsonp
                     success: function (data) {
                         var jsonData = data.data;

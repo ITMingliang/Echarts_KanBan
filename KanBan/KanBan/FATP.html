@@ -42,9 +42,9 @@
                 <strong>FATP区域</strong>
                 <div class="ctitlebg"></div>
             </div>
-            <div class="rmdatetime">
+            <!--<div class="rmdatetime">
                 <span id='Timers'>&nbsp;</span>
-            </div>
+            </div>-->
         </div>
 
         <div class="rmcont_column">
@@ -354,8 +354,8 @@
                     $.ajax({
                         type: "post",    //请求方式
                         /* async: false,*/     //是否异步
-                        /*  url: "http://10.22.21.216:5702/api/WorkshopInfo/GetFATPTop24",*/
-                        url: "http://10.22.96.24:5705/api/WorkshopInfo/GetFATPTop24",
+                          url: "http://10.22.21.216:5702/api/WorkshopInfo/GetFATPTop24",
+                        //url: "http://10.22.96.24:5705/api/WorkshopInfo/GetFATPTop24",
                         dataType: "json",    //跨域json请求一定是jsonp
                         success: function (data) {
 
@@ -378,7 +378,7 @@
                             var DTy7 = [];
 
                             var f1 = true;
-                            for (var i = DT_4.length - 1; i > 0; i--) {
+                            for (var i = DT_4.length - 1; i >= 0; i--) {
 
                                 //X轴
                                 var str = DT_4[i].AddDate;
@@ -443,7 +443,7 @@
 
 
                             var f2 = true;
-                            for (var i = DH_4.length - 1; i > 0; i--) {
+                            for (var i = DH_4.length - 1; i >= 0; i--) {
                                 var str = DH_4[i].AddDate;
                                 str = str.replace(/-/g, "-");//替换字符
                                 var date = new Date(str);//转化为时间格式
@@ -501,6 +501,10 @@
                             option2.series[2].data = DHy6;
                             option2.series[3].data = DHy7;
                             echar2.setOption(option2);
+
+                            //刷新测试
+                            var myDate = new Date();
+                            console.log(myDate);
 
                         },
                         error: function (msg) {

@@ -84,6 +84,7 @@
     <Content Include="images\pr\X-Ray.png" />
     <Content Include="images\Warning.png" />
     <Content Include="Demo.html" />
+    <Content Include="index2.html" />
     <Content Include="js\4031.mp3" />
     <Content Include="js\app.js" />
     <Content Include="js\bootstrap.min.js" />
