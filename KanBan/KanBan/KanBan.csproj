@@ -49,8 +49,7 @@
     <Content Include="css\font-awesome.min.css" />
     <Content Include="css\style.css" />
     <Content Include="ExportData.html" />
-    <Content Include="FATP1.html" />
-    <Content Include="FATP0.html" />
+    <Content Include="FATP.html" />
     <Content Include="fonts\AgencyFB.eot" />
     <Content Include="fonts\AgencyFB.ttf" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -84,7 +83,6 @@
     <Content Include="images\pr\X-Ray.png" />
     <Content Include="images\Warning.png" />
     <Content Include="Demo.html" />
-    <Content Include="index2.html" />
     <Content Include="js\4031.mp3" />
     <Content Include="js\app.js" />
     <Content Include="js\bootstrap.min.js" />
@@ -105,10 +103,11 @@
     <Content Include="js\progress.js" />
     <Content Include="js\status.js" />
     <Content Include="js\stopExecutionOnTimeout.js" />
+    <Content Include="RuninRoom.html" />
     <Content Include="NB.html" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="SMT.html" />
-    <Content Include="FATP.html" />
+    <Content Include="FATP03.html" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.woff" />

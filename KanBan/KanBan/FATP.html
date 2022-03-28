@@ -294,40 +294,33 @@
             function (ec) {
                 var echar1 = echarts.init(document.getElementById('char1'));
                 var option1 = char01();
-                option1.color = ['#0000ff', '#ccff33', '#008000', '#ffff00'];
-                option1.legend.data = ['NO.4', 'NO.5', 'NO.6', 'NO.7'];
+                option1.color = [ '#ccff33', '#008000', '#ffff00'];
+                option1.legend.data = ['NO.4', 'NO.6', 'NO.7'];
                 //option1.series[4].markLine.lineStyle.color = "red";
                 option1.title.text = "温度";
                 option1.xAxis[0].data = [];
                 option1.series[0].name = "NO.4";
                 option1.series[0].data = [];
-                option1.series[1].name = "NO.5";
+                option1.series[1].name = "NO.6";
                 option1.series[1].data = [];
-                option1.series[2].name = "NO.6";
+                option1.series[2].name = "NO.7";
                 option1.series[2].data = [];
-                option1.series[3].name = "NO.7";
-                option1.series[3].data = [];
                 echar1.setOption(option1);
 
                 var echar2 = echarts.init(document.getElementById('char2'));
                 var option2 = char02();
-                console.log(option2);
 
-                option2.color = ['#0000ff', '#ccff33', '#008000', '#ffff00'];
-                //option2.series[4].markLine.data[0].lineStyle.color = "red";
-                option2.legend.data = ['NO.4', 'NO.5', 'NO.6', 'NO.7'];
+                option2.color = [ '#ccff33', '#008000', '#ffff00'];
+                option2.legend.data = ['NO.4', 'NO.6', 'NO.7'];
                 option2.title.text = "湿度";
                 option2.xAxis[0].data = [];
                 option2.series[0].name = "NO.4";
                 option2.series[0].data = [];
-                option2.series[1].name = "NO.5";
+                option2.series[1].name = "NO.6";
                 option2.series[1].data = [];
-                option2.series[2].name = "NO.6";
+                option2.series[2].name = "NO.7";
                 option2.series[2].data = [];
-                option2.series[3].name = "NO.7";
-                option2.series[3].data = [];
                 echar2.setOption(option2);
-                //console.log(echar2);
 
                 var gdata = gData();
                 clearInterval(timeTicket);
@@ -367,13 +360,11 @@
 
                             //温度
                             var DT_4 = data.data_t4;
-                            var DT_5 = data.data_t5;
                             var DT_6 = data.data_t6;
                             var DT_7 = data.data_t7;
 
                             var DTx1 = [];
                             var DTy4 = [];
-                            var DTy5 = [];
                             var DTy6 = [];
                             var DTy7 = [];
 
@@ -392,16 +383,6 @@
                                     showModal_T();
                                     f1 = false;
                                 } else if (DT_4[i].RealValue < 20 && f1) {
-                                    showModal_T();
-                                    f1 = false;
-
-                                }
-
-                                DTy5.push(DT_5[i].RealValue);
-                                if (DT_5[i].RealValue > 28 && f1) {
-                                    showModal_T();
-                                    f1 = false;
-                                } else if (DT_5[i].RealValue < 20 && f1) {
                                     showModal_T();
                                     f1 = false;
 
@@ -430,13 +411,11 @@
 
                             //湿度
                             var DH_4 = data.data_h4;
-                            var DH_5 = data.data_h5;
                             var DH_6 = data.data_h6;
                             var DH_7 = data.data_h7;
 
                             var DHx2 = [];
                             var DHy4 = [];
-                            var DHy5 = [];
                             var DHy6 = [];
                             var DHy7 = [];
 
@@ -460,15 +439,7 @@
                                     f2 = false;
                                 }
 
-                                DHy5.push(DH_5[i].RealValue);
-                                if (DH_5[i].RealValue > 75 && f2) {
-                                    showModal_H();
-                                    f2 = false;
-                                } else if (DH_5[i].RealValue < 45 && f2) {
-                                    showModal_H();
-                                    f2 = false;
-                                }
-
+                              
                                 //DHy6.push(DH_6[i].RealValue);
                                 //if (DH_6[i].RealValue > 75 && f2) {
                                 //    showModal_H();
@@ -490,16 +461,14 @@
 
                             option1.xAxis[0].data = DTx1;
                             option1.series[0].data = DTy4;
-                            option1.series[1].data = DTy5;
-                            option1.series[2].data = DTy6;
-                            option1.series[3].data = DTy7;
+                            option1.series[1].data = DTy6;
+                            option1.series[2].data = DTy7;
                             echar1.setOption(option1);
 
                             option2.xAxis[0].data = DHx2;
                             option2.series[0].data = DHy4;
-                            option2.series[1].data = DHy5;
-                            option2.series[2].data = DHy6;
-                            option2.series[3].data = DHy7;
+                            option2.series[1].data = DHy6;
+                            option2.series[2].data = DHy7;
                             echar2.setOption(option2);
 
                             //刷新测试

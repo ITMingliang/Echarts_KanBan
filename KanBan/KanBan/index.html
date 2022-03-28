@@ -35,7 +35,7 @@
             <div style="width: 50%; height: 50%; float: left; border: 1px solid #666666;">
                 <span style=" display: flex; flex-direction: row; height: 220px; border: 0px solid #666666;">
                     <span id="char5_T"  style="width: 50%; height: 100%; "></span>
-                    <a class="cd-nav-item" href="FATP.html" target="_blank" style=" color: yellow;"> NO.5</a>
+                    <a class="cd-nav-item" href="RuninRoom.html" target="_blank" style=" color: yellow;"> NO.5</a>
                     <span id="char5_H" style="width: 50%; height: 120%; "></span>
                 </span>
             </div>
@@ -206,10 +206,10 @@
                 echar4_H.setOption(option4_H);
 
                 var echar5_T = echarts.init(document.getElementById('char5_T'));
-                var option5_T = char08(parseFloat("0"));
+                var option5_T = char06(parseFloat("0"));
                 echar5_T.setOption(option5_T);
                 var echar5_H = echarts.init(document.getElementById('char5_H'));
-                var option5_H = char07(parseFloat("0"));
+                var option5_H = char05(parseFloat("0"));
                 echar5_H.setOption(option5_H);
 
                 var echar6_T = echarts.init(document.getElementById('char6_T'));
@@ -254,11 +254,11 @@
                             var DH5 = data.data_h5;
                             //温度
                             var DT5_value = DT5[0].RealValue;;
-                            option5_T = char08(parseFloat(DT5_value));
+                            option5_T = char06(parseFloat(DT5_value));
                             echar5_T.setOption(option5_T);
                             //湿度
                             var DH5_value = DH5[0].RealValue;
-                            option5_H = char07(parseFloat(DH5_value));
+                            option5_H = char05(parseFloat(DH5_value));
                             echar5_H.setOption(option5_H);
 
                             var DT6 = data.data_t6;
