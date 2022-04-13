@@ -992,7 +992,8 @@ function char08(value) {
     var Gradient = [];
     var leftColor = '';
     var showValue = '';
-    var boxPosition = [75, -50];//温度文字位置
+    /*  var boxPosition = [75, -50];//温度文字位置*/
+    var boxPosition = [65, -50];//温度文字位置
     var TP_txt = ''
     // 刻度使用柱状图模拟，短设置1，长的设置3；构造一个数据
     for (var i = 0, len = 110; i <= len; i++) {
@@ -1075,7 +1076,7 @@ function char08(value) {
             }
         },
         grid: {
-            left: '16%', // 与容器左侧的距离
+            left: '25%', // 与容器左侧的距离
             //right: '5%', // 与容器右侧的距离
             //top: '5%', // 与容器顶部的距离
             //bottom: '5%', // 与容器底部的距离
@@ -1147,7 +1148,7 @@ function char08(value) {
                             back: {
                                 align: 'center',
                                 lineHeight: 50,
-                                fontSize: 30,
+                                fontSize: 15,//30
                                 fontFamily: 'digifacewide',
                                 color: leftColor
                             },
@@ -1159,7 +1160,7 @@ function char08(value) {
                             },
                             downTxt: {
                                 lineHeight: 50,
-                                fontSize: 25,
+                                fontSize: 15,//25
                                 align: 'center',
                                 color: '#fff'
                             }
@@ -1762,7 +1763,7 @@ function char06(value) {
             }
         },
         grid: {
-            left: '16%', // 与容器左侧的距离
+            left: '25%', // 与容器左侧的距离
             //right: '5%', // 与容器右侧的距离
             //top: '5%', // 与容器顶部的距离
             //bottom: '5%', // 与容器底部的距离
@@ -1834,7 +1835,7 @@ function char06(value) {
                             back: {
                                 align: 'center',
                                 lineHeight: 50,
-                                fontSize: 30,
+                                fontSize: 15,
                                 fontFamily: 'digifacewide',
                                 color: leftColor
                             },
@@ -1846,7 +1847,7 @@ function char06(value) {
                             },
                             downTxt: {
                                 lineHeight: 50,
-                                fontSize: 25,
+                                fontSize: 15,
                                 align: 'center',
                                 color: '#fff'
                             }

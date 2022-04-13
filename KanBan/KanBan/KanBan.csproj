@@ -103,6 +103,7 @@
     <Content Include="js\progress.js" />
     <Content Include="js\status.js" />
     <Content Include="js\stopExecutionOnTimeout.js" />
+    <Content Include="MyIndexTest.html" />
     <Content Include="RuninRoom.html" />
     <Content Include="NB.html" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -238,7 +239,7 @@
     <Content Include="js\echarts\gauge.js" />
     <Content Include="js\echarts\time.js" />
     <Content Include="js\jquery-3.2.1.min.js" />
-    <Content Include="test.html" />
+    <Content Include="MyCSVTest.html" />
     <Content Include="WareHouse.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
